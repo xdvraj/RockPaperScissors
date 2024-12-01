@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RockPaperScissors</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div>
+        <div class="">
+            <nav
+                class=" flex text-white font-semibold justify-center flex items-center p-5 bg-gradient-to-r from-[#6A11CB] to-[#2575fc] ">
+                <h1 class="text-4xl">ROCK PAPER SCISSORS</h1>
+                <img src="../assets/game.png" alt="Welcome Icon" class="w-16 h-16">
+            </nav>
+        </div>
+        <div class="flex mx-auto my-5 justify-between rounded-md border-2 border-blue-500 max-w-5xl p-7">
+            <div>
+                <h1 id="PLAYER_NAME" class="text-4xl justify-center text-blue-600 font-bold pl-28">PLAYER NAME</h1>
+                <div class="mt-16 ml-8 gap-y-8 flex space-x-8">
+                    <button id="ROCK"
+                        class="border-4 border-transparent hover:bg-[#f5b421] p-2 rounded-lg bg-[#2575fc] hover:scale-110 transition-transform">
+                        <img src="../assets/rock.png" alt="Rock" class="w-16 h-16" />
+                    </button>
+
+                    <button id="PAPER"
+                        class="border-4 border-transparent hover:bg-[#f5b421] p-2 rounded-lg bg-[#2575fc] hover:scale-110 transition-transform">
+                        <img src="../assets/paper.png" alt="Paper" class="w-16 h-16" />
+                    </button>
+
+                    <button id="SCISSORS"
+                        class="border-4 border-transparent hover:bg-[#f5b421] p-2 rounded-lg bg-[#2575fc] hover:scale-110 transition-transform">
+                        <img src="../assets/scissor.png" alt="Scissors" class="w-16 h-16" />
+                    </button>
+                </div>
+                <p id="result" class="text-3xl font-semibold pt-12 pl-20 text-[#FBB142]">SELECTED : <span
+                        id="SELECTED_ONE">TEXT</span></p>
+            </div>
+            <div class="flex flex-col items-center">
+                <h1 id="PLAYER_NAME" class="pr-6 text-4xl text-blue-600 font-bold pl-20">COMPUTER</h1>
+                <div class="flex flex-col items-center mt-14">
+                    <img src="../assets/computer.png" alt="" class="w-24 h-24">
+                    <p id="COMPUTER_TEXT" class="text-3xl font-semibold pt-12 text-[#FBB142]">
+                        SELECTED TEXT
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div
+            class="flex flex-col justify-center items-center mx-auto my-5 rounded-md border-2 border-blue-200 max-w-3xl p-7">
+            <div class="w-full mb-4 text-center text-blue-600 flex items-center justify-center space-x-3">
+                <img src="../assets/winner.png" alt="Winner Icon" class="w-14 h-14">
+                <p id="WINNER" class="text-6xl font-semibold">WINNER</p>
+            </div>
+            <div class="w-full mb-4 mt-6 pl-6 text-center text-blue-600">
+                <p id="RESULT" class="text-4xl font-semibold">Result</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
