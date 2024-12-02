@@ -4,12 +4,13 @@ const BtnScissors = document.getElementById("SCISSORS");
 const PlayerSelected = document.getElementById("SELECTED_ONE");
 const COMPUTER = document.getElementById("COMPUTER_TEXT");
 const WINNER = document.getElementById("RESULT");
-let playerName = ""; 
+let playerName = "";
 
 window.onload = function () {
   playerName = prompt("Please enter your name:");
   if (playerName) {
-    document.getElementById("PLAYER_NAME").textContent = playerName.toUpperCase();
+    document.getElementById("PLAYER_NAME").textContent =
+      playerName.toUpperCase();
   }
 };
 
@@ -29,10 +30,16 @@ function Scissors() {
 }
 
 function playGame(playerChoice) {
+  const THINKING = "THINKING...";
+
+  COMPUTER.textContent = THINKING;
   const computerChoice = getComputerChoice();
-  COMPUTER.textContent = computerChoice;
-  let result = determineWinner(playerChoice, computerChoice);
-  WinnerResult(result);
+
+  setTimeout(() => {
+    COMPUTER.textContent = computerChoice;
+    let result = determineWinner(playerChoice, computerChoice);
+    WinnerResult(result);
+  }, 2000);
 }
 
 function getComputerChoice() {
@@ -60,5 +67,5 @@ BtnRock.addEventListener("click", Rock);
 BtnScissors.addEventListener("click", Scissors);
 
 function WinnerResult(result) {
-  WINNER.textContent = result;
+  WINNER.textContent = result.toUpperCase();
 }
