@@ -1,10 +1,12 @@
 const BtnRock = document.getElementById("ROCK");
 const BtnPaper = document.getElementById("PAPER");
+const COMPUTER_NAME = document.getElementById("COMPUTER_NAME");
 const BtnScissors = document.getElementById("SCISSORS");
 const PlayerSelected = document.getElementById("SELECTED_ONE");
 const COMPUTER = document.getElementById("COMPUTER_TEXT");
 const WINNER = document.getElementById("RESULT");
 let playerName = "";
+let computerName = "Computer"; 
 
 window.onload = function () {
   playerName = prompt("Please enter your name:");
@@ -12,7 +14,23 @@ window.onload = function () {
     document.getElementById("PLAYER_NAME").textContent =
       playerName.toUpperCase();
   }
+
+
+  fetchRandomUser();
 };
+
+
+async function fetchRandomUser() {
+  try {
+    const response = await fetch("https://randomuser.me/api/");
+    const data = await response.json();
+    computerName = `${data.results[0].name.first} ${data.results[0].name.last}`;
+    COMPUTER_NAME.textContent = computerName.toUpperCase();
+  } catch (error) {
+    console.error("Error fetching computer name:", error);
+    COMPUTER_NAME.textContent = "Computer"; 
+  }
+}
 
 function Paper() {
   PlayerSelected.textContent = "PAPER";
@@ -36,7 +54,7 @@ function playGame(playerChoice) {
   const computerChoice = getComputerChoice();
 
   setTimeout(() => {
-    COMPUTER.textContent = computerChoice;
+    COMPUTER.textContent = computerChoice; 
     let result = determineWinner(playerChoice, computerChoice);
     WinnerResult(result);
   }, 2000);
@@ -58,7 +76,7 @@ function determineWinner(playerChoice, computerChoice) {
   ) {
     return `${playerName} wins!!`;
   } else {
-    return "Computer wins!!";
+    return `${computerName} wins!!`; 
   }
 }
 
